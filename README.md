@@ -1,0 +1,2 @@
+# awesomewm
+My awsesome config
