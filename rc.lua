@@ -33,10 +33,6 @@ require("config.ui.mainmenu")
 
 require("config.ui.bar")
 
--- {{{ Screen
--- require("config.ui.screen")
--- }}}
-
 -- Menubar configuration
 require("config.menubar")
 -- }}}

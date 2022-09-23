@@ -1,15 +1,13 @@
 local awful = require "awful"
 local gears = require "gears"
 local wibox = require "wibox"
-local beautiful = require "beautiful"
-
-local dpi = beautiful.xresources.apply_dpi
+local beautiful = require("beautiful")
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
 
 -- Get widgets
 local wifi = require("config.ui.bar.wifi")
 local volume = require("config.ui.bar.volume")
-local launcher = require("config.ui.bar.launcher")
-local separator = require("config.ui.bar.separator")
 local clock = require("config.ui.bar.clock")
 
 local taglist_buttons = gears.table.join(
@@ -29,35 +27,57 @@ local taglist_buttons = gears.table.join(
                     awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
                 )
 
+local right = wibox.widget {
+  {
+    volume,
+    wifi,
+    spacing = 10,
+    layout = wibox.layout.fixed.horizontal
+  },
+  right = 10,
+  layout = wibox.container.margin
+}
+
 -- Bar
 local function get_bar(s)
-  awful.tag({ "1", "2", "3", "4", "5", "6" }, s, awful.layout.layouts[1])
+
+  awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
   s.mytaglist = awful.widget.taglist {
       screen  = s,
       filter  = awful.widget.taglist.filter.all,
       buttons = taglist_buttons,
   }
 
+  local left = wibox.widget {
+    {
+      s.mytaglist,
+      layout = wibox.layout.fixed.horizontal
+    },
+    left = 10,
+    layout = wibox.container.margin
+  }
+
   -- Create the wibox
-  s.mywibox = awful.wibar({ position = "top", screen = s })
+  s.mywibox = awful.wibar({
+    position = "top",
+    visible = true,
+    screen = s })
 
   -- Add widgets to the wibox
   s.mywibox:setup {
-      layout = wibox.layout.align.horizontal,
-      { -- Left widgets
-          launcher,
-          s.mytaglist,
-          spacing = 10,
-          layout = wibox.layout.fixed.horizontal,
+      layout = wibox.layout.stack,
+      {
+          layout = wibox.layout.align.horizontal,
+          left,
+          nil,
+          right
       },
-      nil,
-      { -- Right widgets
-          volume,
-          wifi,
+      {
           clock,
-          spacing = 10,
-          layout = wibox.layout.fixed.horizontal,
-      },
+          valign = "center",
+          halign = "center",
+          layout = wibox.container.place
+      }
   }
 end
 

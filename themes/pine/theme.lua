@@ -91,13 +91,13 @@ theme.titlebar_maximized_button_normal_active = gears.color.recolor_image(themes
 theme.titlebar_maximized_button_focus_active  = gears.color.recolor_image(themes_path .. "default/titlebar/close_1.png", theme.green)
 
 theme.titlebar_bg_normal = gears.color("#26292C")
-theme.titlebar_bg_focus = gears.color("#1D1C1A")
+theme.titlebar_bg_focus = gears.color("#0E1111")
 
 -- }}}
 
 -- {{{ Wallpaper
 
-theme.wallpaper = wallpaper_path.."waves-3.jpg"
+theme.wallpaper = wallpaper_path.."pine1.jpg"
 
 -- }}}
 

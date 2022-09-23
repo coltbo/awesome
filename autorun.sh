@@ -7,4 +7,7 @@ run() {
   fi
 }
 
-run "picom"
+run "pipewire"
+run "pipewire-pulse"
+
+exec picom --experimental-backends &

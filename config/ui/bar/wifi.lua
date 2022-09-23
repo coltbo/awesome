@@ -2,11 +2,19 @@ local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
 
--- Wifi
-local wifi = wibox.widget.textbox()
-local wifi_t = awful.tooltip {}
+local network = wibox.widget({
+  layout = wibox.layout.align.horizontal,
+  {
+    id = "icon",
+    text = "",
+    align = "center",
+    valign = "center",
+    font = "FiraCode 20",
+    widget = wibox.widget.textbox,
+  },
+})
+local network_t = awful.tooltip {}
 
-wifi.font = "FiraCode 14"
 
 local function get_wifi()
 	local script = [[
@@ -22,11 +30,11 @@ local function get_wifi()
 
 			awful.spawn.easy_async_with_shell(get_strength, function(stdout)
 				local strength = tonumber(stdout)
-        wifi.markup = "直"
-        wifi_t.text = string.format("strength: %s", strength)
+        network.icon:set_text("直")
+        network_t.text = string.format("strength: %s", strength)
 			end)
 		else
-			wifi.markup = "睊"
+      network.icon:set_text("直")
 		end
 	end)
 end
@@ -38,6 +46,7 @@ gears.timer {
 	callback = function() get_wifi() end
 }
 
-wifi_t:add_to_object(wifi)
+network_t:add_to_object(network)
 
-return wifi
+-- return network
+return network
