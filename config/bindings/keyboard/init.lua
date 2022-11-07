@@ -103,25 +103,25 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
-    -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"}),
 
-    -- Multimedia keys
+
+    -- Audio keys
+    awful.key({ modkey }, "a", function() awful.spawn("change-audio.sh") end,
+              {description = "change audio", group = "audio"}),
     awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("pamixer -i 2") end,
-              {description = "raise volume", group = "multimedia"}),
+              {description = "raise volume", group = "audio"}),
     awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("pamixer -d 2") end,
-              {description = "lower volume", group = "multimedia"}),
+              {description = "lower volume", group = "audio"}),
     awful.key({}, "XF86AudioMute", function() awful.spawn("pamixer -t") end,
-              {description = "mute audio", group = "multimedia"}),
+              {description = "mute audio", group = "audio"}),
     awful.key({}, "XF86AudioNext", function() awful.spawn("playerctl next") end,
-              {description = "play next track", group = "multimedia"}),
+              {description = "play next track", group = "audio"}),
     awful.key({}, "XF86AudioPrev", function() awful.spawn("playerctl previous") end,
-              {description = "play previous track", group = "multimedia"}),
+              {description = "play previous track", group = "audio"}),
     awful.key({}, "XF86AudioPlay", function() awful.spawn("playerctl play-pause") end,
-              {description = "toggle audio", group = "multimedia"}),
+              {description = "toggle audio", group = "audio"}),
     awful.key({}, "XF86AudioStop", function() awful.spawn("playerctl pause") end,
-              {description = "stop audio", group = "multimedia"})
+              {description = "stop audio", group = "audio"})
 )
 
 clientkeys = gears.table.join(

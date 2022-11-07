@@ -21,9 +21,7 @@ awesome.connect_signal("signal::volume", function (vol, mute)
   if mute == true or vol == 0 then
     volume.markup = "婢"
   else
-    if vol < 20 then
-     volume.markup = "奄"
-    elseif vol < 60 then
+    if vol < 50 then
       volume.markup = "奔"
     else
       volume.markup = "墳"

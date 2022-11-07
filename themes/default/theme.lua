@@ -97,7 +97,7 @@ theme.titlebar_bg_focus = gears.color("#1D1C1A")
 
 -- {{{ Wallpaper
 
-theme.wallpaper = wallpaper_path.."waves-3.jpg"
+theme.wallpaper = wallpaper_path.."dark-road.jpg"
 
 -- }}}
 
