@@ -9,7 +9,7 @@ local network = wibox.widget({
     text = "",
     align = "center",
     valign = "center",
-    font = "FiraCode 20",
+    font = "Ubuntu 18",
     widget = wibox.widget.textbox,
   },
 })

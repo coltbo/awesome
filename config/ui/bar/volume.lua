@@ -5,7 +5,7 @@ local utils = require("utilities")
 local volume = wibox.widget.textbox()
 local volume_t = awful.tooltip {}
 
-volume.font = "FiraCode 20"
+volume.font = "Ubuntu 18"
 
 -- handle volume signals
 awesome.connect_signal("signal::volume", function (vol, mute)

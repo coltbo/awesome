@@ -10,7 +10,7 @@ local gears = require("gears")
 
 local theme = {}
 
-theme.font          = "FiraCode 12"
+theme.font          = "Ubuntu 12"
 
 -- {{{ Colors
 
@@ -59,7 +59,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 )
 theme.taglist_spacing = 8
 theme.taglist_disable_icon = true
-theme.taglist_font = "Fira Code 10"
+theme.taglist_font = "Ubuntu 10"
 theme.taglist_bg_focus = theme.transparent
 theme.taglist_fg_focus = "#7F9B64"
 theme.taglist_fg_occupied = theme.white
@@ -97,7 +97,7 @@ theme.titlebar_bg_focus = gears.color("#1D1C1A")
 
 -- {{{ Wallpaper
 
-theme.wallpaper = wallpaper_path.."dark-road.jpg"
+theme.wallpaper = wallpaper_path.."0019.jpg"
 
 -- }}}
 
@@ -130,13 +130,17 @@ theme.awesome_icon = gears.color.recolor_image(themes_path .. "default/launchpad
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = nil
+theme.icon_theme = "Papirus"
 
 -- {{{ wibar
 -- theme.wibar_ontop = true
 theme.wibar_type = "dock"
-theme.wibar_height = 25
+theme.wibar_height = 30
 theme.wibar_bg = theme.bg
+-- }}}
+
+-- {{{ tasklist
+-- theme.tasklist_disable_task_name = true
 -- }}}
 
 
