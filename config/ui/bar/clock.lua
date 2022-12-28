@@ -7,6 +7,6 @@ local clock = wibox.widget({
 })
 
 local month_calendar = awful.widget.calendar_popup.month()
-month_calendar:attach( clock, "tc" )
+month_calendar:attach( clock, "tr" )
 
 return clock

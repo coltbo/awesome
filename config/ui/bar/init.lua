@@ -114,6 +114,15 @@ local function get_bar(s)
     },
   }
 
+  local tasklist = wibox.widget {
+    {
+      s.mytasklist,
+      layout = wibox.layout.fixed.horizontal
+    },
+    left = 5,
+    layout = wibox.container.margin
+  }
+
   local left = wibox.widget {
     {
       s.mytaglist,
@@ -136,15 +145,9 @@ local function get_bar(s)
     {
       layout = wibox.layout.align.horizontal,
       left,
-      s.mytasklist,
+      tasklist,
       right
     },
-    -- {
-    --   clock,
-    --   valign = "center",
-    --   halign = "center",
-    --   layout = wibox.container.place
-    -- }
   }
 end
 

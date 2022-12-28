@@ -26,7 +26,7 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = dpi(5)
-theme.border_width  = dpi(0)
+theme.border_width  = dpi(4)
 theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
@@ -97,7 +97,7 @@ theme.titlebar_bg_focus = gears.color("#1D1C1A")
 
 -- {{{ Wallpaper
 
-theme.wallpaper = wallpaper_path.."0019.jpg"
+theme.wallpaper = wallpaper_path.."simple.jpg"
 
 -- }}}
 
