@@ -11,7 +11,7 @@ require("awful.hotkeys_popup.keys")
 require("config.autostart")
 --}}}
 
--- {{{ Wallpaper 
+-- {{{ Wallpaper
 require("config.ui.wallpaper")
 -- }}}
 
@@ -55,4 +55,8 @@ require("config.signals")
 
 -- {{{ Titlebar
 require("config.ui.titlebar")
+-- }}}
+
+-- {{{ Popups
+require("config.ui.popups")
 -- }}}

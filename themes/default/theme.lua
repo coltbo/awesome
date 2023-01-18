@@ -4,7 +4,7 @@ local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
 local themes_path = "/home/colten/.config/awesome/themes/"
-local wallpaper_path = "/home/colten/Pictures/wallpapers/"
+local wallpaper_path = "/home/colten/Pictures/Wallpapers/"
 
 local gears = require("gears")
 
@@ -13,23 +13,6 @@ local theme = {}
 theme.font          = "Ubuntu 12"
 
 -- {{{ Colors
-
-theme.bg_normal     = "#1D1C1A"
-theme.bg_focus      = "#26292C"
-theme.bg_urgent     = "#D96C6C"
-theme.bg_minimize   = "#444444"
-theme.bg_systray    = theme.bg_normal
-
-theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
-
-theme.useless_gap   = dpi(5)
-theme.border_width  = dpi(4)
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
-theme.border_marked = "#91231c"
 
 theme.black = "#323333"
 theme.red = "#D96C6C"
@@ -42,8 +25,24 @@ theme.white = "#E0DEDC"
 theme.grey = "#3A3B3C"
 theme.transparent = "#00000000"
 
-theme.fg = "#33374c"
+theme.bg_normal     = "#1D1C1A"
+theme.bg_focus      = "#26292C"
+theme.bg_urgent     = "#D96C6C"
+theme.bg_minimize   = "#444444"
+theme.bg_systray    = theme.bg_normal
 
+theme.fg_normal     = "#aaaaaa"
+theme.fg_focus      = "#ffffff"
+theme.fg_urgent     = "#ffffff"
+theme.fg_minimize   = "#ffffff"
+
+theme.useless_gap   = dpi(4)
+theme.border_width  = dpi(0)
+theme.border_normal = "#000000"
+theme.border_focus  = "#FBB86C"
+theme.border_marked = "#91231c"
+
+theme.fg = "#33374c"
 theme.bg = "#0E1111"
 theme.bg_alt = "#E1E4E6"
 
@@ -97,7 +96,7 @@ theme.titlebar_bg_focus = gears.color("#1D1C1A")
 
 -- {{{ Wallpaper
 
-theme.wallpaper = wallpaper_path.."simple.jpg"
+theme.wallpaper = wallpaper_path.."0203.jpg"
 
 -- }}}
 
@@ -137,6 +136,11 @@ theme.icon_theme = "Papirus"
 theme.wibar_type = "dock"
 theme.wibar_height = 30
 theme.wibar_bg = theme.bg
+-- }}}
+
+-- {{{ Progress bar
+theme.progressbar_bg = "#585858"
+theme.progressbar_fg = "#6ACAD8"
 -- }}}
 
 -- {{{ tasklist

@@ -1,8 +1,8 @@
 local awful = require("awful")
 local utils = require("utilities")
 
-local volume_old = -1
-local mute_old = false
+local current_volume = -1
+local current_mute = false
 
 local function emit_volume()
   awful.spawn.easy_async_with_shell(
@@ -16,10 +16,10 @@ local function emit_volume()
       local mute = utils.toboolean(chunks[1])
       local volume = chunks[2]
 
-      if volume ~= volume_old or mute ~= mute_old then
+      if volume ~= current_volume or mute ~= current_mute then
         awesome.emit_signal("signal::volume", volume, mute)
-        volume_old = volume
-        mute_old = mute
+        current_volume = volume
+        current_mute = mute
       end
     end)
 end
@@ -34,10 +34,10 @@ local volume_script = [[
 
 -- Kill old pactl subscribe processes
 awful.spawn.easy_async({
-    "pkill", "--full", "--uid", os.getenv("USER"), "^pactl subscribe"
+  "pkill", "--full", "--uid", os.getenv("USER"), "^pactl subscribe"
 }, function()
-    -- Run emit_volume_info() with each line printed
-    awful.spawn.with_line_callback(volume_script, {
-        stdout = function(line) emit_volume() end
-    })
+  -- Run emit_volume_info() with each line printed
+  awful.spawn.with_line_callback(volume_script, {
+    stdout = function(line) emit_volume() end
+  })
 end)

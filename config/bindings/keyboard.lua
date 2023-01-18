@@ -1,7 +1,9 @@
 -- Library
+require("config.ui.layouts")
 local gears = require("gears")
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
+local utils = require("utilities")
 local menubar = require("menubar")
 require("awful.hotkeys_popup.keys")
 
@@ -71,10 +73,12 @@ globalkeys = gears.table.join(
     { description = "increase the number of columns", group = "layout" }),
   awful.key({ modkey, "Control" }, "l", function() awful.tag.incncol(-1, nil, true) end,
     { description = "decrease the number of columns", group = "layout" }),
-  awful.key({ modkey, }, "space", function() awful.layout.inc(1) end,
-    { description = "select next", group = "layout" }),
-  awful.key({ modkey, "Shift" }, "space", function() awful.layout.inc(-1) end,
-    { description = "select previous", group = "layout" }),
+  -- awful.key({ modkey, }, "space", Layout:get_layouts(),
+  --   { description = "select next", group = "layout" }),
+  -- awful.key({ modkey, }, "space", function() awful.layout.inc(1) end,
+  --   { description = "select next", group = "layout" }),
+  -- awful.key({ modkey, "Shift" }, "space", function() awful.layout.inc(-1) end,
+  --   { description = "select previous", group = "layout" }),
 
   awful.key({ modkey, "Control" }, "n",
     function()
@@ -89,7 +93,7 @@ globalkeys = gears.table.join(
     { description = "restore minimized", group = "client" }),
 
   -- Prompt
-  awful.key({ modkey }, "r", function() awful.spawn("rofi -show drun") end,
+  awful.key({ modkey }, "r", function() awful.spawn("/home/colten/.config/rofi/launchers/type-3/launcher.sh") end,
     { description = "run prompt", group = "launcher" }),
 
   awful.key({ modkey }, "x",
@@ -107,11 +111,20 @@ globalkeys = gears.table.join(
   -- Audio keys
   awful.key({ modkey }, "a", function() awful.spawn("change-audio.sh") end,
     { description = "change audio", group = "audio" }),
-  awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("pamixer -i 2") end,
+  awful.key({}, "XF86AudioRaiseVolume", function()
+    awful.spawn("pamixer -i 2")
+    utils.signal_volume()
+  end,
     { description = "raise volume", group = "audio" }),
-  awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("pamixer -d 2") end,
+  awful.key({}, "XF86AudioLowerVolume", function()
+    awful.spawn("pamixer -d 2")
+    utils.signal_volume()
+  end,
     { description = "lower volume", group = "audio" }),
-  awful.key({}, "XF86AudioMute", function() awful.spawn("pamixer -t") end,
+  awful.key({}, "XF86AudioMute", function()
+    awful.spawn("pamixer -t")
+    utils.signal_volume()
+  end,
     { description = "mute audio", group = "audio" }),
   awful.key({}, "XF86AudioNext", function() awful.spawn("playerctl next") end,
     { description = "play next track", group = "audio" }),

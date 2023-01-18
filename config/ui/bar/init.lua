@@ -66,8 +66,8 @@ local function get_bar(s)
 
   awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
   s.mytaglist = awful.widget.taglist {
-    screen  = s,
-    filter  = awful.widget.taglist.filter.all, buttons = taglist_buttons,
+    screen = s,
+    filter = awful.widget.taglist.filter.all, buttons = taglist_buttons,
   }
 
   -- Create a tasklist widget
@@ -145,7 +145,8 @@ local function get_bar(s)
     {
       layout = wibox.layout.align.horizontal,
       left,
-      tasklist,
+      nil,
+      -- tasklist,
       right
     },
   }
